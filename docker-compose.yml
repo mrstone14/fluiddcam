@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  mjpg-streamer:
+    build:
+      context: ./mjpg-streamer
+      dockerfile: Dockerfile
+    restart: always
+    privileged: true
+    ports:
+      - 8080:8080
+    environment:
+      - INPUT_FLAGS=-r 1920x1080 -f 30
+      - OUTPUT_FLAGS=-w ./www
+    volumes:
+      - /run/udev:/run/udev:ro
