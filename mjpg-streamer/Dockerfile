@@ -7,7 +7,9 @@ RUN apt-get update && apt-get install -y cmake build-essential curl git
 RUN echo "deb http://archive.raspberrypi.org/debian/ bullseye main" > /etc/apt/sources.list.d/raspi.list
 RUN curl "https://archive.raspberrypi.org/debian/raspberrypi.gpg.key" | apt-key add -
 
-RUN apt update && apt full-upgrade -y
+RUN apt update && apt full-upgrade -y && apt policy raspberrypi-kernel-headers
+
+RUN apt install raspberrypi-kernel-headers
 
 RUN apt-get update && apt-get install -y libcamera-dev libjpeg-dev libgphoto2-dev
 
