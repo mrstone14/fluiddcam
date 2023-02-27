@@ -2,16 +2,12 @@ FROM debian:bullseye
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install -y cmake build-essential curl git
+RUN apt update && apt install -y cmake build-essential curl git
 
 RUN echo "deb http://archive.raspberrypi.org/debian/ bullseye main" > /etc/apt/sources.list.d/raspi.list
-#RUN echo "deb http://deb.debian.org/debian bullseye main contrib non-free deb http://security.debian.org/debian-security bullseye-security main contrib non-free deb http://deb.debian.org/debian bullseye-updates main contrib non-free" > /etc/apt/sources.list
 RUN curl "https://archive.raspberrypi.org/debian/raspberrypi.gpg.key" | apt-key add -
 
 RUN apt update && apt full-upgrade -y
-#RUN apt-get dist-upgrade
-#RUN dpkg --configure -a
-#RUN apt-get -f install
 
 #RUN apt list -a raspberrypi-kernel
 #RUN apt policy raspberrypi-kernel-headers
