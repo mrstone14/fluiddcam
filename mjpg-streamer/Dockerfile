@@ -9,6 +9,7 @@ RUN echo "deb http://archive.raspberrypi.org/debian/ bullseye main" > /etc/apt/s
 RUN curl "https://archive.raspberrypi.org/debian/raspberrypi.gpg.key" | apt-key add -
 
 RUN apt-get update && apt full-upgrade -y
+RUN apt-get dist-upgrade
 RUN dpkg --configure -a
 RUN apt-get -f install
 
