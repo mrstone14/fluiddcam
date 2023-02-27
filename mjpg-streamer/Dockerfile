@@ -13,11 +13,13 @@ RUN apt-get dist-upgrade
 RUN dpkg --configure -a
 RUN apt-get -f install
 
+RUN apt list -a raspberrypi-kernel
+
 RUN apt policy raspberrypi-kernel-headers
 
 RUN apt install raspberrypi-kernel-headers
 
-RUN apt install raspberrypi-kernel
+#RUN apt install raspberrypi-kernel
 
 RUN apt-get update && apt-get install -y libcamera-dev libjpeg-dev libgphoto2-dev
 
