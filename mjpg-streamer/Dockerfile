@@ -8,20 +8,17 @@ RUN echo "deb http://archive.raspberrypi.org/debian/ bullseye main" > /etc/apt/s
 #RUN echo "deb http://deb.debian.org/debian bullseye main contrib non-free deb http://security.debian.org/debian-security bullseye-security main contrib non-free deb http://deb.debian.org/debian bullseye-updates main contrib non-free" > /etc/apt/sources.list
 RUN curl "https://archive.raspberrypi.org/debian/raspberrypi.gpg.key" | apt-key add -
 
-RUN apt-get update && apt full-upgrade -y
-RUN apt-get dist-upgrade
-RUN dpkg --configure -a
-RUN apt-get -f install
+RUN apt update && apt full-upgrade -y
+#RUN apt-get dist-upgrade
+#RUN dpkg --configure -a
+#RUN apt-get -f install
 
-RUN apt list -a raspberrypi-kernel
-
-RUN apt policy raspberrypi-kernel-headers
-
-RUN apt install raspberrypi-kernel-headers
-
+#RUN apt list -a raspberrypi-kernel
+#RUN apt policy raspberrypi-kernel-headers
+#RUN apt install raspberrypi-kernel-headers
 #RUN apt install raspberrypi-kernel
 
-RUN apt-get update && apt-get install -y libcamera-dev libjpeg-dev libgphoto2-dev
+RUN apt update && apt install -y libcamera-dev libjpeg-dev libgphoto2-dev
 
 RUN git clone https://github.com/ArduCAM/mjpg-streamer.git /src
 WORKDIR /src/mjpg-streamer-experimental
