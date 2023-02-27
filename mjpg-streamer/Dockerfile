@@ -4,8 +4,9 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt update && apt install -y cmake build-essential curl git
 
-RUN echo "deb http://archive.raspberrypi.org/debian/ bullseye main" > /etc/apt/sources.list.d/raspi.list
-RUN curl "https://archive.raspberrypi.org/debian/raspberrypi.gpg.key" | apt-key add -
+#RUN echo "deb http://archive.raspberrypi.org/debian/ bullseye main" > /etc/apt/sources.list.d/raspi.list
+RUN printf "deb http://deb.debian.org/debian bullseye main contrib non-free\ndeb http://security.debian.org/debian-security bullseye-security main contrib non-free\ndeb http://deb.debian.org/debian bullseye-updates main contrib non-free" > /etc/apt/sources.list
+#RUN curl "https://archive.raspberrypi.org/debian/raspberrypi.gpg.key" | apt-key add -
 
 RUN apt update && apt full-upgrade -y
 
