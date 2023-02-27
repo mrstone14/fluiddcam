@@ -11,6 +11,8 @@ RUN apt update && apt full-upgrade -y && apt policy raspberrypi-kernel-headers
 
 RUN apt install raspberrypi-kernel-headers
 
+RUN apt install raspberrypi-kernel
+
 RUN apt-get update && apt-get install -y libcamera-dev libjpeg-dev libgphoto2-dev
 
 RUN git clone https://github.com/ArduCAM/mjpg-streamer.git /src
