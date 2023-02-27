@@ -11,7 +11,7 @@ RUN apt update && apt full-upgrade -y && apt policy raspberrypi-kernel-headers
 
 RUN apt install raspberrypi-kernel-headers
 
-RUN apt install raspberrypi-kernel
+RUN apt-get install raspberrypi-kernel
 
 RUN apt-get update && apt-get install -y libcamera-dev libjpeg-dev libgphoto2-dev
 
